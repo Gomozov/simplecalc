@@ -1,0 +1,19 @@
+{
+  "name": "simplecalc",
+  "version": "0.0.2",
+  "description": "",
+  "main": "console.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gomozov/simplecalc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gomozov/simplecalc/issues"
+  },
+  "homepage": "https://github.com/Gomozov/simplecalc#readme"
+}

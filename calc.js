@@ -1,12 +1,16 @@
 let calc = function (str) {
   str = str.replace(/\s/g,"");
-  if (/[^0-9\+-\/\*eE\.]/.test(str)) {
+  if (/[^0-9\+-\/\*eE\.\(\)]/.test(str)) {
     return "Please enter digits and math operators only.";
   }
   str = calculate_parenthesis(str);  
   str = calculate_multiplicator(str);
   str = calculate_addictive(str);
-  return Number(str);
+  if (isNaN(Number(str))) {
+    return "Result is not a number.";
+  } else {
+    return Number(str);
+  }
 };
 
 let calculate_parenthesis = function (str) {
@@ -52,21 +56,6 @@ let calculate_multiplicator = function (str) {
   return str;
 };
 
-const rl = require('readline').createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  prompt: 'CALCULATOR> '
-})
-
-rl.prompt();
-rl.on('line', (line) => {
-  switch (line.trim()) {
-    default:
-      console.log(calc(line.trim()));
-      break;
-  }
-  rl.prompt();
-}).on('close', () => {
-  console.log('Good buy!');
-  process.exit(0);
-});
+module.exports = {
+  calc
+}
