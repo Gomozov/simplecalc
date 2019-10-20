@@ -1,13 +1,16 @@
 let calc = function (str) {
   str = str.replace(/\s/g,"");
-  if (/[^0-9\+-\/\*eE\.\(\)]/.test(str)) {
+  if (/[^0-9\+-\/\*e\.\(\)]/.test(str)) {
     return "Please enter digits and math operators only.";
+  }
+  if (str === "") {
+    return "Result is not a number. Empty input.";
   }
   str = calculate_parenthesis(str);  
   str = calculate_multiplicator(str);
   str = calculate_addictive(str);
   if (isNaN(Number(str))) {
-    return "Result is not a number.";
+    return "Result is not a number. Please check operators and parenthesis.";
   } else {
     return Number(str);
   }

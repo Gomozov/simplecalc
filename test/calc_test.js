@@ -1,5 +1,5 @@
 const assert = require('assert');
-const mc = require('./calc.js');
+const mc = require('./../calc.js');
 
 describe('Calculate simple expression', function() {
   const tests = [
@@ -44,10 +44,10 @@ describe('Calculate hard expression', function() {
 describe('Error handling', function() {
   const tests = [
     ['11 * 7 * g', "Please enter digits and math operators only."],
-    ['84 / 54 / 89 * )', "Result is not a number."],
-    ['', "Result is not a number."],
-    ['--1', "Result is not a number."],
-    ['1+--1', "Result is not a number."]
+    ['84 / 54 / 89 * )', "Result is not a number. Please check operators and parenthesis."],
+    ['', "Result is not a number. Empty input."],
+    ['--1', "Result is not a number. Please check operators and parenthesis."],
+    ['1+--1', "Result is not a number. Please check operators and parenthesis."]
   ];
 
   tests.forEach(function (m) {
